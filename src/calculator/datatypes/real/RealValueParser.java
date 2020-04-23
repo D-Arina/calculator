@@ -1,5 +1,18 @@
 package calculator.datatypes.real;
 
-public class RealValueParser {
+import calculator.AbstractValue;
+import calculator.AbstractValueParser;
+import calculator.ParseValueException;
 
+public class RealValueParser implements AbstractValueParser {
+
+    @Override
+    public AbstractValue parse(String value) throws ParseValueException {
+        return null;
+    }
+
+    @Override
+    public String getDatatypeName() {
+        return null;
+    }
 }

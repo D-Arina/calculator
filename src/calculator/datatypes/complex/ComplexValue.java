@@ -14,7 +14,7 @@ public class ComplexValue extends AbstractValue {
     }
 
 
-
+    @Override
     public ComplexValue add(AbstractValue operand) throws OperationNotSupportedException, ParseValueException {
         ComplexValue o = (ComplexValue)operand;
         ComplexValue n = new ComplexValue(re + o.re, im + o.im);
@@ -24,6 +24,7 @@ public class ComplexValue extends AbstractValue {
     @Override
     public AbstractValue sub(AbstractValue operand) throws OperationNotSupportedException, ParseValueException {
         ComplexValue comp = (ComplexValue) operand;
+
         return new ComplexValue(re - comp.re, im - comp.im);
     }
 
@@ -36,13 +37,19 @@ public class ComplexValue extends AbstractValue {
     @Override
     public AbstractValue div(AbstractValue operand) throws DivisionByZeroException, OperationNotSupportedException {
         ComplexValue o = (ComplexValue)operand;
-        double m = Math.sqrt (re * re+ im * im);
-        return new ComplexValue ((re * o.re - im * o.im) /m, (im * o.re - re * o.im) /m);
+        ComplexValue temp = new ComplexValue(o.re, -1 * o.im);
+        temp = ComplexValue.this.mul(temp);
+        double denominator = (o.re * o.re) + (o.im * o.im);
+        return new ComplexValue(temp.re / denominator, temp.im / denominator);
     }
 
     @Override
     public String toString() {
-        return  + re + " + " +im;
+        return  re + " + " +im + "i";
+    }
+
+    public double mod(){
+        return Math.sqrt (re * re+ im * im);
     }
 
 
