@@ -20,47 +20,45 @@ public class ComplexValueParser implements AbstractValueParser {
         char[] str = value.toCharArray();
 
         try {
-
-
             if (str[0] == '-') {
-                System.out.println("1");
+                //System.out.println("1");
                 sb.deleteCharAt(0);
                 value = sb.toString();
                 if (value.contains("-")) {
-                    System.out.println("2");
+                    //System.out.println("2");
                     String[] subSrt = value.split("\\-");
                     re = Double.parseDouble(subSrt[0]);
                     re = re * -1;
                     if (subSrt.length == 2) {
-                        System.out.println("3");
+                        //System.out.println("3");
                         im = Double.parseDouble(subSrt[1]);
                         im = im * -1;
                     } else {
-                        System.out.println("4");
+                        //System.out.println("4");
                         im = -1.0;
                     }
                 } else if (value.contains("+")) {
-                    System.out.println("5");
+                    //System.out.println("5");
                     String[] subSrt = value.split("\\+");
                     re = Double.parseDouble(subSrt[0]);
                     re = re * -1;
                     if (subSrt.length == 2) {
-                        System.out.println("13");
+                        //System.out.println("13");
                         im = Double.parseDouble(subSrt[1]);
                     } else {
-                        System.out.println("14");
+                        //System.out.println("14");
                         im = 1.0;
                     }
                 }
             } else {
-                System.out.println(6);
+               // System.out.println(6);
                 value = sb.toString();
                 if (value.contains("-")) {
-                    System.out.println("7");
+                    //System.out.println("7");
                     String[] subStr = value.split("\\-");
                     re = Double.parseDouble(subStr[0]);
                     if (subStr.length == 2) {
-                        System.out.println("8");
+                        //System.out.println("8");
                         im = Double.parseDouble(subStr[1]);
                         im = im * -1;
                     } else {
@@ -68,14 +66,14 @@ public class ComplexValueParser implements AbstractValueParser {
                     }
                 } else {
                     if (value.contains("+")) {
-                        System.out.println("9");
+                        //System.out.println("9");
                         String[] subSrt = value.split("\\+");
                         re = Double.parseDouble(subSrt[0]);
                         if (subSrt.length == 2) {
-                            System.out.println("3");
+                            //System.out.println("3");
                             im = Double.parseDouble(subSrt[1]);
                         } else {
-                            System.out.println("4");
+                            //System.out.println("4");
                             im = 1.0;
                         }
                     }
