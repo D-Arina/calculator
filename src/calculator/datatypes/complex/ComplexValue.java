@@ -24,7 +24,6 @@ public class ComplexValue extends AbstractValue {
     @Override
     public AbstractValue sub(AbstractValue operand) throws OperationNotSupportedException, ParseValueException {
         ComplexValue comp = (ComplexValue) operand;
-
         return new ComplexValue(re - comp.re, im - comp.im);
     }
 

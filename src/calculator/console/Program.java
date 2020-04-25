@@ -67,7 +67,7 @@ public class Program {
 
 			} catch (Exception exception) {
 				System.out.println(exception.getMessage());
-				//exception.printStackTrace();
+//				exception.printStackTrace();
 			}
 		}
 	}
