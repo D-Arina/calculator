@@ -44,7 +44,12 @@ public class ComplexValue extends AbstractValue {
 
     @Override
     public String toString() {
-        return  re + " + " +im + "i";
+        if(im < 0){
+            im = im *-1;
+            return  re + " - " +im + "i";
+        }else {
+            return re + " + " + im + "i";
+        }
     }
 
     public double mod(){
