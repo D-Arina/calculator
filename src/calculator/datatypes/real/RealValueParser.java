@@ -14,17 +14,24 @@ public class RealValueParser implements AbstractValueParser {
         double number;
 
         try {
-            if (value.contains(".")) {
-                number = Double.parseDouble(subStr[0]);
-                return new RealValue(number);
-            } else {
+            if (value.contains("/")) {
                 if (subStr[1].equals("0")) {
                     throw new ParseValueException("Denominator is zero!");
                 } else {
                     iDenominator = subStr[1];
                     return new RealValue(Integer.parseInt(iNumerator), Integer.parseInt(iDenominator));
-
                 }
+                /*number = Double.parseDouble(subStr[0]);
+                return new RealValue(number);*/
+            } else {
+                number = Double.parseDouble(subStr[0]);
+                return new RealValue(number);
+                /*if (subStr[1].equals("0")) {
+                    throw new ParseValueException("Denominator is zero!");
+                } else {
+                    iDenominator = subStr[1];
+                    return new RealValue(Integer.parseInt(iNumerator), Integer.parseInt(iDenominator));
+                }*/
             }
         } catch (Exception e) {
             throw new ParseValueException();
