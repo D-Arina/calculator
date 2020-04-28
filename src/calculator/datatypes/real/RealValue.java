@@ -41,7 +41,7 @@ public class RealValue extends AbstractValue {
         double op =  ((RealValue) operand).value;
         if (op == 0.0){
             throw new DivisionByZeroException();
-        }else {
+        }else{
             return new RealValue(this.value / op);
         }
     }

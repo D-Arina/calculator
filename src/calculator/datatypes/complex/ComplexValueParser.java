@@ -12,11 +12,14 @@ public class ComplexValueParser implements AbstractValueParser {
 
         Double im = 0.0;
         Double re = 0.0;
+        String value2 = value.toString();
 
         value = value.trim();
          //-3+2i + 5-6i
         StringBuffer sb = new StringBuffer(value);
-        sb.deleteCharAt(value.length() - 1);
+        if(value.contains("i")) {
+            sb.deleteCharAt(value.length() - 1);
+        }
         char[] str = value.toCharArray();
 
         try {
@@ -49,6 +52,16 @@ public class ComplexValueParser implements AbstractValueParser {
                         //System.out.println("14");
                         im = 1.0;
                     }
+                }else {
+                    if(value2.contains("i")){
+                        String[] subSrt = value.split("");
+                        im = Double.parseDouble(subSrt[0]);
+                        im = im * -1;
+                    }else{
+                        String[] subSrt = value.split("");
+                        re = Double.parseDouble(subSrt[0]);
+                        re = re * -1;
+                    }
                 }
             } else {
                // System.out.println(6);
@@ -75,6 +88,16 @@ public class ComplexValueParser implements AbstractValueParser {
                         } else {
                             //System.out.println("4");
                             im = 1.0;
+                        }
+                    }else {
+                        if(value2.contains("i")){
+                            String[] subSrt = value.split("");
+                            im = Double.parseDouble(subSrt[0]);
+
+                        }else{
+                            String[] subSrt = value.split("");
+                            re = Double.parseDouble(subSrt[0]);
+
                         }
                     }
                 }
